@@ -1,0 +1,274 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApiAlex</name>
+    </assembly>
+    <members>
+        <member name="M:WebApiAlex.Controllers.GarantiasController.GetAll">
+            <summary>
+            Obtém todos os planos de garantia cadastrados no sistema
+            </summary>
+        </member>
+        <member name="M:WebApiAlex.Controllers.GarantiasController.GetById(System.Guid)">
+            <summary>
+            Obtém um plano de garantia específico pelo ID
+            </summary>
+            <param name="id">ID da garantia</param>
+        </member>
+        <member name="M:WebApiAlex.Controllers.GarantiasController.Add(WebApiAlex.Models.Garantia)">
+            <summary>
+            Adiciona um novo plano de garantia
+            </summary>
+            <param name="garantia">Dados do plano de garantia</param>
+        </member>
+        <member name="M:WebApiAlex.Controllers.GarantiasController.Update(System.Guid,WebApiAlex.Models.Garantia)">
+            <summary>
+            Atualiza um plano de garantia existente
+            </summary>
+            <param name="id">ID da garantia</param>
+            <param name="garantia">Dados atualizados da garantia</param>
+        </member>
+        <member name="M:WebApiAlex.Controllers.GarantiasController.Delete(System.Guid)">
+            <summary>
+            Remove um plano de garantia
+            </summary>
+            <param name="id">ID da garantia</param>
+        </member>
+        <member name="M:WebApiAlex.Controllers.LoginController.Login(WebApiAlex.Controllers.LoginRequest)">
+            <summary>
+            Realiza login e gera um token JWT
+            </summary>
+            <param name="request">Credenciais do usuário</param>
+        </member>
+        <member name="M:WebApiAlex.Controllers.ProdutosController.GetAll">
+            <summary>
+            Obtém todos os produtos cadastrados no sistema
+            </summary>
+        </member>
+        <member name="M:WebApiAlex.Controllers.ProdutosController.GetById(System.Guid)">
+            <summary>
+            Obtém um produto específico pelo ID
+            </summary>
+            <param name="id">ID do produto</param>
+        </member>
+        <member name="M:WebApiAlex.Controllers.ProdutosController.Add(WebApiAlex.Models.Produto)">
+            <summary>
+            Adiciona um novo produto
+            </summary>
+            <param name="produto">Dados do produto</param>
+        </member>
+        <member name="M:WebApiAlex.Controllers.ProdutosController.Update(System.Guid,WebApiAlex.Models.Produto)">
+            <summary>
+            Atualiza um produto existente
+            </summary>
+            <param name="id">ID do produto</param>
+            <param name="produto">Dados atualizados do produto</param>
+        </member>
+        <member name="M:WebApiAlex.Controllers.ProdutosController.Delete(System.Guid)">
+            <summary>
+            Remove um produto
+            </summary>
+            <param name="id">ID do produto</param>
+        </member>
+        <member name="M:WebApiAlex.Controllers.VendasController.GetAll">
+            <summary>
+            Obtém todas as vendas cadastradas no sistema
+            </summary>
+        </member>
+        <member name="M:WebApiAlex.Controllers.VendasController.GetById(System.Guid)">
+            <summary>
+            Obtém uma venda específica pelo ID
+            </summary>
+            <param name="id">ID da venda</param>
+        </member>
+        <member name="M:WebApiAlex.Controllers.VendasController.Add(WebApiAlex.Models.Venda)">
+            <summary>
+            Adiciona uma nova venda
+            </summary>
+            <param name="venda">Dados da venda</param>
+        </member>
+        <member name="M:WebApiAlex.Controllers.VendasController.Delete(System.Guid)">
+            <summary>
+            Remove uma venda
+            </summary>
+            <param name="id">ID da venda</param>
+        </member>
+        <member name="T:WebApiAlex.Models.Garantia">
+            <summary>
+            Representa um tipo ou plano de garantia que pode ser oferecido.
+            Esta entidade define as características de uma garantia, como nome, valor e duração.
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.Garantia.Id">
+            <summary>
+            Identificador único global (UUID) do plano de garantia.
+            Este ID é usado para identificar o tipo de garantia de forma exclusiva.
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.Garantia.Nome">
+            <summary>
+            Nome descritivo do plano de garantia (ex: "Garantia Estendida", "Garantia Padrão 1 Ano").
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.Garantia.Valor">
+            <summary>
+            Valor associado a este plano de garantia, se aplicável (ex: custo adicional).
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.Garantia.Prazo">
+            <summary>
+            Duração do plano de garantia em anos.
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.Interfaces.IEntity.Id">
+            <summary>
+            Identificador único (UUID) da entidade.
+            </summary>
+        </member>
+        <member name="T:WebApiAlex.Models.ItensVenda">
+            <summary>
+            Representa um item de venda associado a um produto e sua garantia
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.ItensVenda.Produto">
+            <summary>
+            Referência ao produto (opcional - para navegação)
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.ItensVenda.Quantidade">
+            <summary>
+            Quantidade de Produtos do Item.
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.ItensVenda.ValorUnitario">
+            <summary>
+            Valor unitário do Item.
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.ItensVenda.ValorTotal">
+            <summary>
+            Valor Total dos Itens x Quantidade (calculado).
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.ItensVenda.Garantia">
+            <summary>
+            Garantia do Item (opcional - para navegação)
+            </summary>
+        </member>
+        <member name="T:WebApiAlex.Models.Produto">
+            <summary>
+            Representa um produto genérico, incluindo informações de estoque e fornecedor.
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.Produto.Id">
+            <summary>
+            Identificador único global (UUID) do produto.
+            Este ID é usado para identificar o produto de forma exclusiva em todo o sistema.
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.Produto.Nome">
+            <summary>
+            Nome completo do produto.
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.Produto.Valor">
+            <summary>
+            Valor unitário de venda do produto.
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.Produto.EstoqueMinimo">
+            <summary>
+            Quantidade mínima permitida em estoque para este produto.
+            Alertas podem ser gerados quando o saldo em estoque atinge ou fica abaixo deste valor.
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.Produto.EstoqueMaximo">
+            <summary>
+            Quantidade máxima ideal de produtos que deve ser mantida em estoque.
+            Este valor pode ser usado para otimização de pedidos ou armazenamento.
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.Produto.SaldoEmEstoque">
+            <summary>
+            Quantidade atual de unidades do produto disponíveis em estoque.
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.Produto.Fornecedor">
+            <summary>
+            Nome ou identificador do fornecedor responsável por este produto.
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.Produto.PossuiGarantia">
+            <summary>
+            Booleano que indica se o produto em questão possui garantia de fábrica ou do vendedor.
+            </summary>
+        </member>
+        <member name="T:WebApiAlex.Models.Venda">
+            <summary>
+            Representa uma transação de venda completa, contendo um ou mais itens.
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.Venda.Id">
+            <summary>
+            Identificador único (UUID) da venda.
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.Venda.ItensdaVenda">
+            <summary>
+            Itens da venda
+            </summary>
+        </member>
+        <member name="P:WebApiAlex.Models.Venda.ValorTotal">
+            <summary>
+            O valor total da venda, que é a soma dos Valores Totais de todos os ItemVenda.
+            Pode ser um campo calculado ou persistido.
+            </summary>
+        </member>
+        <member name="M:WebApiAlex.Services.ServiceBase`1.GetAll">
+            <summary>
+            Obtém todos os itens.
+            </summary>
+            <returns>Uma lista de todos os itens.</returns>
+        </member>
+        <member name="M:WebApiAlex.Services.ServiceBase`1.GetById(System.Guid)">
+            <summary>
+            Obtém um item pelo seu ID.
+            </summary>
+            <param name="id">O ID do item.</param>
+            <returns>O item encontrado ou null se não existir.</returns>
+        </member>
+        <member name="M:WebApiAlex.Services.ServiceBase`1.Add(`0)">
+            <summary>
+            Adiciona um novo item.
+            </summary>
+            <param name="entity">A entidade a ser adicionada.</param>
+            <returns>A entidade adicionada, com seu ID gerado.</returns>
+            <exception cref="T:WebApiAlex.Exceptions.ValidationException">Lançada se a entidade for nula ou inválida.</exception>
+            <exception cref="T:WebApiAlex.Exceptions.ConflictException">Lançada se houver um conflito de regra de negócio (ex: nome duplicado).</exception>
+        </member>
+        <member name="M:WebApiAlex.Services.ServiceBase`1.Update(`0)">
+            <summary>
+            Atualiza um item existente.
+            </summary>
+            <param name="entity">A entidade com os dados atualizados.</param>
+            <returns>A entidade atualizada.</returns>
+            <exception cref="T:WebApiAlex.Exceptions.NotFoundException">Lançada se o item não for encontrado.</exception>
+            <exception cref="T:WebApiAlex.Exceptions.ValidationException">Lançada se a entidade for nula ou inválida.</exception>
+        </member>
+        <member name="M:WebApiAlex.Services.ServiceBase`1.Delete(System.Guid)">
+            <summary>
+            Exclui um item pelo seu ID.
+            </summary>
+            <param name="id">O ID do item a ser excluído.</param>
+            <exception cref="T:WebApiAlex.Exceptions.NotFoundException">Lançada se o item não for encontrado.</exception>
+        </member>
+        <member name="M:WebApiAlex.Services.ServiceBase`1.UpdateEntity(`0,`0)">
+            <summary>
+            Método abstrato para sobrescrever a atualização de propriedades de um item existente.
+            Assegura que apenas as propriedades permitidas sejam atualizadas.
+            </summary>
+            <param name="existing">A instância existente do item.</param>
+            <param name="updated">A instância com os dados a serem atualizados.</param>
+        </member>
+    </members>
+</doc>
